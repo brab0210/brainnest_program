@@ -1,0 +1,29 @@
+body {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading-wrapper {
+  text-align: center;
+  margin-top: 200px;
+  outline: rgb(247, 117, 117) inset 10px;
+  padding: 50px;
+}
+
+.heading-wrapper h1 {
+  color: cornflowerblue;
+}
+
+.heading-wrapper h2 {
+  color: hsl(10, 25%, 50%);
+}
+
+.heading-wrapper h3 {
+  color: rgb(150, 50, 100);
+}
+
+.heading-wrapper h4 {
+  color: #61b359;
+}
