@@ -1,14 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Lora", sans-serif;
 }
 
-body {
-  overflow: hidden;
-}
-
-body img {
+/* body img {
   background-image: url("../images/first-img.jpg");
   width: 100vw;
   height: auto;
@@ -16,14 +15,21 @@ body img {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.6;
+} */
+
+body {
+  background-color: rgba(247, 219, 184, 0.5);
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 100vh;
 }
 
 header {
   display: flex;
   align-items: center;
-  background-color: rgba(245, 245, 220, 0.5);
-  margin-bottom: 5px;
-  margin-top: 5px;
+  background-color: rgba(216, 216, 89, 0.35);
+  width: 100%;
+  height: 100px;
 }
 
 .left-header {
@@ -38,23 +44,93 @@ header {
   border-radius: 50%;
   padding: 5px;
   margin-left: 30px;
+  color: black;
 }
 
 .right-header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
+  width: 85%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a::after,
+::before {
+  content: "";
+  height: 0.1em;
+  display: block;
+  position: absolute;
+  transition: width 540ms, opacity 300ms ease;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 0;
+}
+
+a::before {
+  left: 0;
+}
+
+a::after {
+  background-color: #7ae25a;
+  right: 0;
 }
 
 .right-header a {
-  margin-right: 50px;
   text-decoration: none;
-  color: black;
+  color: white;
+  position: relative;
+  padding: 0 6px;
+  margin-right: 50px;
+  font-size: 20px;
+  /* text-shadow: -2px 1px 6px black; */
+  transition: all 450ms ease;
 }
 
 .right-header a:hover {
-  color: rgba(57, 57, 235, 0.747);
-  border-bottom: rgba(57, 57, 235, 0.747);
-  border-top: rgba(57, 57, 235, 0.747);
+  color: #7ae25a;
+}
+
+.right-header a:hover::before {
+  width: 60%;
+  transition: width 250ms ease;
+  background-color: #7ae25a;
+}
+
+.right-header a:hover::after {
+  width: 100%;
+  background-color: transparent;
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.img-wrapper img {
+  height: auto;
+  width: 732px;
+  outline: 2px solid #fff;
+  box-shadow: 10px 10px 5px #ccc;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: rgba(216, 216, 89, 0.35);
+  text-align: center;
+  width: 100%;
+  padding: 2em 0;
+  position: absolute;
+  bottom: 0;
+}
+
+footer .copyright {
+  font-size: 1.15rem;
 }
