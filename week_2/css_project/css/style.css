@@ -102,11 +102,7 @@ h2 {
   /* margin: 3px 350px 60px 350px; */
   margin-top: 4px;
   margin-bottom: 60px;
-}
-
-.section-cards .cards {
-  /*  width: 100px; */
-  margin-left: 35px;
+  gap: 30px;
 }
 
 .cards .image {
