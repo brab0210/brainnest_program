@@ -136,8 +136,7 @@ h2 {
   font-weight: 300;
   color: #1f2937;
   font-style: italic;
-  padding: 60px 30px;
-  margin: 0px 340px;
+  margin: 0px 240px;
 }
 
 .section-quote span {
@@ -145,7 +144,7 @@ h2 {
   color: #1f2937;
   font-size: 18px;
   position: absolute;
-  right: 390px;
+  right: 255px;
   bottom: 75px;
 }
 
