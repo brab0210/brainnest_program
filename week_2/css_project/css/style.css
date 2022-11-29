@@ -125,9 +125,9 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: hsl(0, 0%, 87%);
   width: 100%;
-  position: relative;
   height: 350px;
 }
 
@@ -136,16 +136,15 @@ h2 {
   font-weight: 300;
   color: #1f2937;
   font-style: italic;
-  margin: 0px 240px;
+  width: 74%;
 }
 
 .section-quote span {
   font-weight: 900;
   color: #1f2937;
   font-size: 18px;
-  position: absolute;
-  right: 255px;
-  bottom: 75px;
+  text-align: right;
+  width: 100%;
 }
 
 .before-footer {
