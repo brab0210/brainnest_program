@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Javascript Project</title>
 </head>
+
 <body>
     <h1>Main Javascript Project</h1>
 
     <script>
-        let computerPlay = () => Math.ceil(Math.random() * (3))
-        
+        let computerPlay = () => {
+            let random_int = Math.ceil(Math.random() * (3))
+            let game_text = {
+                1: "Rock",
+                2: "Paper",
+                3: "Scissors"
+            }
+            return game_text[random_int]
+        }
+
+        let computerScore = 0;
+        let playerScore = 0;
+
+        let playRound = (playerSelection, computerSelection) => {
+            let normalize_playerSelection = playerSelection.toLowerCase();
+
+            if (normalize_playerSelection === "rock" && computerSelection === "Paper") {
+                computerScore++
+                return "You lose! Paper beats Rock";
+            }
+            if (normalize_playerSelection === "rock" && computerSelection === "Scissors") {
+                playerScore++
+                return "You win! Rock beats Scissors";
+            }
+
+            if (normalize_playerSelection === "paper" && computerSelection === "Scissors") {
+                computerScore++
+                return "You lose! Scissors beats Paper";
+            }
+            if (normalize_playerSelection === "paper" && computerSelection === "Rock") {
+                playerScore++
+                return "You win! Paper beats Rock";
+            }
+
+            if (normalize_playerSelection === "scissors" && computerSelection === "Rock") {
+                computerScore++
+                return "You lose! Rock beats Scissors";
+            }
+            if (normalize_playerSelection === "scissors" && computerSelection === "Rock") {
+                playerScore++
+                return "You win! Scissors beats Paper";
+            }
+
+            if (normalize_playerSelection === computerSelection.toLowerCase()) return "Draw!"
+        }
+
+
+        let playerSelection = "rock";
+        let game = () => {
+            for (let index = 0; index < 5; index++) {
+                console.log(playRound(playerSelection, computerPlay()));
+            }
+            if (playerScore > computerScore) {
+                return `The Player won the game || Player: ${playerScore} - Computer: ${computerScore}`
+            } else if (playerScore < computerScore) {
+                return `The Computer won the game || Player: ${playerScore} - Computer: ${computerScore}`
+            } else {
+                return `The computer and the player had a draw! || Player: ${playerScore} - Computer: ${computerScore}`
+            }
+        }
+
+
+        console.log(game());
     </script>
 </body>
+
 </html>

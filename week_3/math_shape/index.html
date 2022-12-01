@@ -14,17 +14,17 @@
 
     const PI_NUM = Math.PI;
 
-    let diagonal_func = (number) => {
+    let diagonalFunction = (number) => {
       let sqrt_two = Math.sqrt(2)
       return number * sqrt_two
     }
 
-    let area_func = (side_a, side_b, side_c) => {
+    let areaFunction = (side_a, side_b, side_c) => {
       let sumSides = side_a + side_b + side_c
       return sumSides / 2
     }
 
-    let circ_and_area_func = {
+    let circAndAreaFunction = {
       circumference_func: number => 2 * number * PI_NUM,
       area_func: number => {
         let radiusPow = Math.pow(number, 2);
@@ -32,11 +32,11 @@
       }
     }
 
-    console.log(`First operation result is: ${diagonal_func(9)}`);
-    console.log(`Second operation result is: ${area_func(5, 6, 7)}`);
+    console.log(`First operation result is: ${diagonalFunction(9)}`);
+    console.log(`Second operation result is: ${areaFunction(5, 6, 7)}`);
     console.log(`Third operations results are:
-                   Circumference: ${circ_and_area_func.circumference_func(4)}
-                   Area: ${circ_and_area_func.area_func(4)}
+                   Circumference: ${circAndAreaFunction.circumference_func(4)}
+                   Area: ${circAndAreaFunction.area_func(4)}
                    `);
 
   </script>
