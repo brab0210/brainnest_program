@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematical Shapes</title>
+</head>
+
+<body>
+  <h1>Mathematical Shapes</h1>
+  <script>
+
+    const PI_NUM = Math.PI;
+
+    let diagonal_func = (number) => {
+      let sqrt_two = Math.sqrt(2)
+      return number * sqrt_two
+    }
+
+    let area_func = (side_a, side_b, side_c) => {
+      let sumSides = side_a + side_b + side_c
+      return sumSides / 2
+    }
+
+    let circ_and_area_func = {
+      circumference_func: number => 2 * number * PI_NUM,
+      area_func: number => {
+        let radiusPow = Math.pow(number, 2);
+        return PI_NUM * radiusPow
+      }
+    }
+
+    console.log(`First operation result is: ${diagonal_func(9)}`);
+    console.log(`Second operation result is: ${area_func(5, 6, 7)}`);
+    console.log(`Third operations results are:
+                   Circumference: ${circ_and_area_func.circumference_func(4)}
+                   Area: ${circ_and_area_func.area_func(4)}
+                   `);
+
+  </script>
+</body>
+
+</html>
