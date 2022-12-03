@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Javascript Project</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <h1>Main Javascript Project</h1>
+    <h2>Rock Paper Scissors</h2>
 
     <script>
         let computerPlay = () => {
@@ -59,7 +61,11 @@
         }
 
 
-        let playerSelection = "rock";
+        let playerSelection = prompt("Please write rock, paper o scissor to start the game");
+
+        if (!playerSelection) {
+            playerSelection = "rock";
+        }
         let game = () => {
             for (let index = 0; index < 5; index++) {
                 console.log(playRound(playerSelection, computerPlay()));

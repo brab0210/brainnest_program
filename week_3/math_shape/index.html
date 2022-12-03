@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mathematical Shapes</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -20,8 +21,10 @@
     }
 
     let areaFunction = (side_a, side_b, side_c) => {
-      let sumSides = side_a + side_b + side_c
-      return sumSides / 2
+      let perimeter = (side_a + side_b + side_c) / 2
+      let sumPerimeter = perimeter * (perimeter - side_a) * (perimeter - side_b) * (perimeter - side_c)
+      let area = Math.sqrt(sumPerimeter);
+      return area
     }
 
     let circAndAreaFunction = {
@@ -32,11 +35,11 @@
       }
     }
 
-    console.log(`First operation result is: ${diagonalFunction(9)}`);
-    console.log(`Second operation result is: ${areaFunction(5, 6, 7)}`);
+    console.log(`First operation result is: ${diagonalFunction(9).toFixed(3)}`);
+    console.log(`Second operation result is: ${areaFunction(5, 6, 7).toFixed(3)}`);
     console.log(`Third operations results are:
-                   Circumference: ${circAndAreaFunction.circumference_func(4)}
-                   Area: ${circAndAreaFunction.area_func(4)}
+                   Circumference: ${circAndAreaFunction.circumference_func(4).toFixed(3)}
+                   Area: ${circAndAreaFunction.area_func(4).toFixed(3)}
                    `);
 
   </script>
