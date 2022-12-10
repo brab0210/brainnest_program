@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Javascript Project</title>
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,6 +14,35 @@
     <h1>Main Javascript Project</h1>
     <h2>Rock Paper Scissors</h2>
 
+    <section class="container">
+        <p>
+            To play the game you must choose between rock, paper or scissors. Please click one of the "Play!" buttons
+            below to start the round.
+        </p>
+
+        <div class="scores">
+            <h3>Round <span id="roundCount"></span>!</h3>
+            <p class="game-scores">The Player score is: <span id="player-score"></span></p>
+            <p class="game-scores">The Computer score is: <span id="computer-score"></span></p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="./img/r.png" alt="rock choice">
+                <button id="rock">Play!</button>
+            </div>
+            <div class="card">
+                <img src="./img/p.png" alt="paper choice">
+                <button id="paper">Play!</button>
+            </div>
+            <div class="card">
+                <img src="./img/s.png" alt="scissors choice">
+                <button id="scissors">Play!</button>
+            </div>
+        </div>
+        <p class="result"></p>
+    </section>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./main.js"></script>
 </body>
 

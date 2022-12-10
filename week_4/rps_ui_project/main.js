@@ -1,5 +1,7 @@
-let computerScore = 0;
-let playerScore = 0;
+let computerCount = 0;
+let playerCount = 0;
+let roundCount = 1;
+let sum = 0;
 
 function computerPlay() {
   let random_index = Math.floor(Math.random() * 3);
@@ -13,31 +15,71 @@ function playerWin(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    playerScore++;
+    playerCount++;
     return true;
   } else {
-    computerScore++;
+    computerCount++;
     return false;
   }
 }
 
 function playRound(playerSelection) {
+  roundCount++;
+  sum = playerCount + computerCount;
   let computerSelection = computerPlay();
 
   if (playerSelection === computerSelection) return "It's a draw!";
 
   let result = playerWin(playerSelection, computerSelection);
   if (result) {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+    return `You win! ${playerSelection} beats ${computerSelection}.`;
   } else {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    return `You lose! ${computerSelection} beats ${playerSelection}.`;
   }
 }
 
-/* if (playerScore > computerScore) {
-  return `The Player won the game || Player: ${playerScore} - Computer: ${computerScore}`;
-} else if (playerScore < computerScore) {
-  return `The Computer won the game || Player: ${playerScore} - Computer: ${computerScore}`;
-} else {
-  return `The computer and the player had a draw! || Player: ${playerScore} - Computer: ${computerScore}`;
-} */
+// DOM Manipulation
+
+let roundCounter = document.querySelector("#roundCount");
+let h3Round = document.querySelector("h3");
+let playerScore = document.querySelector("#player-score");
+let computerScore = document.querySelector("#computer-score");
+let buttons = document.querySelectorAll("button");
+let pScores = document.querySelectorAll(".game-scores");
+let result = document.querySelector(".result");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    h3Round.style.display = "block";
+    roundCounter.textContent = roundCount;
+    pScores.forEach((p) => (p.style.display = "block"));
+    result.textContent = playRound(btn.id);
+    playerScore.textContent = playerCount;
+    computerScore.textContent = computerCount;
+    if (result.textContent.includes("win")) {
+      result.style.color = "green";
+    } else if (result.textContent.includes("lose")) {
+      result.style.color = "red";
+    } else {
+      result.style.color = "#929090";
+    }
+
+    if (sum == 4) {
+      setTimeout(() => {
+        result.style.fontSize = "52px";
+        if (playerCount > computerCount) {
+          result.textContent = "The Player has won the game!";
+        } else {
+          result.textContent = "The Computer has won the game!";
+        }
+      }, 1500);
+
+      setTimeout(() => {
+        alert("The rounds has finished, If you want play again!");
+      }, 2000);
+      computerCount = 0;
+      playerCount = 0;
+      roundCount = 1;
+    }
+  });
+});

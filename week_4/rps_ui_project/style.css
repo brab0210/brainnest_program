@@ -1,0 +1,129 @@
+@import "https://fonts.googleapis.com/css?family=Rubik+One";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 0.5) 0%,
+    rgba(253, 187, 45, 0.5) 100%
+  );
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 25px 0;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+}
+
+h2 {
+  margin: 35px 0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #605a5a;
+}
+
+.container {
+  margin: 1rem 2rem;
+}
+
+.container > p {
+  color: #605a5a;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0.25rem 0;
+}
+
+.container .cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.container .cards .card {
+  text-align: center;
+  width: 100%;
+}
+.card img {
+  width: 75%;
+  height: auto;
+}
+
+.card button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 0.5rem 2.5rem;
+  background: #ffeb3b;
+  color: #f57f17;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: normal;
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4);
+  appearance: none;
+  cursor: pointer;
+  transition: background 250ms, box-shadow 250ms;
+}
+
+.card button:hover {
+  background: #fdd835;
+  box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.scores {
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  height: 40px;
+}
+
+.scores h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 9px;
+  color: #cd5151;
+  display: none;
+  transition: 0.5ms all;
+}
+
+.game-scores {
+  color: #ff563b;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0.15rem 0;
+  width: 50%;
+  display: none;
+  transition: 0.5ms animation;
+  animation: leftParagraph 0.5s ease-in-out 1;
+}
+
+@keyframes leftParagraph {
+  0% {
+    margin-left: -260px;
+  }
+  100% {
+    margin-left: 1px;
+  }
+}
+
+.container .result {
+  color: black;
+  font-weight: bold;
+  font-size: 34px;
+  margin-top: 2.5rem;
+  text-align: center;
+}
