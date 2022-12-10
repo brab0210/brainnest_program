@@ -26,9 +26,24 @@ function operations(numA, numB, operator) {
 }
 
 function changeSign() {
-  if (firstNumber !== null || secondNumber !== null) {
+  if (firstNumber !== null) {
     displayScreen.textContent = displayScreen.textContent * -1;
     firstNumber = displayScreen.textContent;
+  }
+  if (secondNumber !== null) {
+    displayScreen.textContent = displayScreen.textContent * -1;
+    secondNumber = displayScreen.textContent;
+  }
+}
+
+function percentage() {
+  if (firstNumber !== null) {
+    displayScreen.textContent /= 100;
+    firstNumber = displayScreen.textContent;
+  }
+  if (secondNumber !== null) {
+    displayScreen.textContent /= 100;
+    secondNumber = displayScreen.textContent;
   }
 }
 
@@ -110,10 +125,15 @@ btnsOperators.forEach((btn) => {
         Number(firstNumber),
         Number(secondNumber),
         operator
-      ).toFixed(0);
+      ).toFixed(1);
       displayScreen.textContent = result;
       firstNumber = Number(result);
       secondNumber = null;
     }
   });
+});
+
+window.addEventListener("keydown", (e) => {
+  let key = document.querySelector(`button[data-key='${e.keyCode}']`);
+  console.log(key.click());
 });
