@@ -26,7 +26,8 @@ function operations(numA, numB, operator) {
 }
 
 function changeSign() {
-  if (firstNumber !== null) {
+  debugger;
+  if (firstNumber !== null && secondNumber === null) {
     displayScreen.textContent = displayScreen.textContent * -1;
     firstNumber = displayScreen.textContent;
   }
@@ -129,7 +130,6 @@ btnsNumbers.forEach((btn) => {
 
 btnsOperators.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    debugger;
     if (operator !== "=" && operator === null) {
       operator = e.target.textContent;
       displayScreen.textContent = "";
