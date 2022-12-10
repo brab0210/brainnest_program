@@ -93,6 +93,7 @@ function eraseAll() {
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
+let result = null;
 
 btnsNumbers.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -107,6 +108,19 @@ btnsNumbers.forEach((btn) => {
       displayScreen.textContent += e.target.textContent;
       secondNumber = displayScreen.textContent;
     }
+    /*  if (result !== null && operator !== null) {
+      displayScreen.textContent += e.target.textContent;
+      secondNumber = displayScreen.textContent;
+      result = operations(Number(firstNumber), Number(secondNumber), operator);
+      if (String(result).includes(".")) {
+        displayScreen.textContent = result.toFixed(1);
+      } else {
+        displayScreen.textContent = result;
+      }
+      firstNumber = Number(result);
+      secondNumber = null;
+    } */
+
     if (displayScreen.textContent.length > 9) {
       displayScreen.textContent = displayScreen.textContent.substring(0, 9);
     }
@@ -115,18 +129,23 @@ btnsNumbers.forEach((btn) => {
 
 btnsOperators.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    if (operator === null && operator !== "=") {
+    debugger;
+    if (operator !== "=" && operator === null) {
       operator = e.target.textContent;
       displayScreen.textContent = "";
       dotBtn.disabled = false;
     }
+    if (result !== null && operator !== "=" && secondNumber === null) {
+      operator = e.target.textContent;
+      displayScreen.textContent = "";
+    }
     if (firstNumber !== null && secondNumber !== null) {
-      let result = operations(
-        Number(firstNumber),
-        Number(secondNumber),
-        operator
-      ).toFixed(1);
-      displayScreen.textContent = result;
+      result = operations(Number(firstNumber), Number(secondNumber), operator);
+      if (String(result).includes(".")) {
+        displayScreen.textContent = result.toFixed(1);
+      } else {
+        displayScreen.textContent = result;
+      }
       firstNumber = Number(result);
       secondNumber = null;
     }
