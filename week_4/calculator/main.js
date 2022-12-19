@@ -101,6 +101,11 @@ btnsNumbers.forEach((btn) => {
     if (displayScreen.textContent == "0") {
       displayScreen.textContent = "";
     }
+
+    if (secondNumber === null && operator !== null) {
+      displayScreen.textContent = "";
+    }
+
     if (secondNumber === null && operator === null) {
       displayScreen.textContent += e.target.textContent;
       firstNumber = displayScreen.textContent;
@@ -109,19 +114,6 @@ btnsNumbers.forEach((btn) => {
       displayScreen.textContent += e.target.textContent;
       secondNumber = displayScreen.textContent;
     }
-    /*  if (result !== null && operator !== null) {
-      displayScreen.textContent += e.target.textContent;
-      secondNumber = displayScreen.textContent;
-      result = operations(Number(firstNumber), Number(secondNumber), operator);
-      if (String(result).includes(".")) {
-        displayScreen.textContent = result.toFixed(1);
-      } else {
-        displayScreen.textContent = result;
-      }
-      firstNumber = Number(result);
-      secondNumber = null;
-    } */
-
     if (displayScreen.textContent.length > 9) {
       displayScreen.textContent = displayScreen.textContent.substring(0, 9);
     }
@@ -135,9 +127,9 @@ btnsOperators.forEach((btn) => {
       displayScreen.textContent = "";
       dotBtn.disabled = false;
     }
-    if (result !== null && operator !== "=" && secondNumber === null) {
+    // i have to fix this
+    if (result !== null && operator !== "=" && e.target.textContent !== "=") {
       operator = e.target.textContent;
-      displayScreen.textContent = "";
     }
     if (firstNumber !== null && secondNumber !== null) {
       result = operations(Number(firstNumber), Number(secondNumber), operator);
@@ -154,5 +146,5 @@ btnsOperators.forEach((btn) => {
 
 window.addEventListener("keydown", (e) => {
   let key = document.querySelector(`button[data-key='${e.keyCode}']`);
-  console.log(key.click());
+  key.click();
 });
