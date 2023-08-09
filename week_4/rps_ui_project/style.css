@@ -34,6 +34,7 @@ h2 {
 
 .container {
   margin: 1rem 2rem;
+  max-width: 1480px;
 }
 
 .container > p {
